@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanshraj Tonder - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4ade80',  /* Light Green */
+                        secondary: '#16a34a', /* Darker Green */
+                        dark: '#000000',      /* Pure Black */
+                        light: '#111827',     /* Dark Gray Background */
+                        surface: '#1f2937',   /* Slightly lighter for cards */
+                        text: '#e5e7eb'       /* Light Gray Text */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #111827 0%, #064e3b 100%);
+        }
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(74, 222, 128, 0.1), 0 10px 10px -5px rgba(74, 222, 128, 0.04);
+            border-color: #4ade80;
+        }
+        /* Custom scrollbar for hacker feel */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111827; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #16a34a; 
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4ade80; 
+        }
+        
+        /* Typing animation styles */
+        .typing-container {
+            display: inline-flex;
+            align-items: center;
+        }
+        .typing-text {
+            border-right: 3px solid #4ade80;
+            padding-right: 5px;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #4ade80; }
+        }
+    </style>
+</head>
+<body class="bg-light text-text">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-light/95 backdrop-blur-sm shadow-md border-b border-gray-800 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-primary">&lt;Vanshraj Tonder /&gt;</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-400 hover:text-primary transition">About</a>
+                    <a href="#school" class="text-gray-400 hover:text-primary transition">School</a>
+                    <a href="#achievements" class="text-gray-400 hover:text-primary transition">Achievements</a>
+                    <a href="#business" class="text-gray-400 hover:text-primary transition">Business</a>
+                    <a href="#contact" class="text-gray-400 hover:text-primary transition">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-400 hover:text-primary">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-surface py-2 px-4 shadow-lg border-b border-green-900">
+            <a href="#about" class="block py-2 text-gray-400 hover:text-primary">About</a>
+            <a href="#school" class="block py-2 text-gray-400 hover:text-primary">School</a>
+            <a href="#achievements" class="block py-2 text-gray-400 hover:text-primary">Achievements</a>
+            <a href="#business" class="block py-2 text-gray-400 hover:text-primary">Business</a>
+            <a href="#contact" class="block py-2 text-gray-400 hover:text-primary">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white pt-32 pb-20 relative overflow-hidden">
+        <!-- Abstract Tech Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+            <div class="absolute top-20 left-10 text-9xl text-primary transform -rotate-12"><i class="fas fa-code"></i></div>
+            <div class="absolute bottom-20 right-10 text-9xl text-primary transform rotate-12"><i class="fas fa-terminal"></i></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-green-900 uppercase bg-primary rounded-full">System Online</div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 font-mono">Vanshraj Tonder<span class="text-primary animate-pulse">_</span></h1>
+                    <p class="text-xl mb-6 text-gray-300 h-8">
+                        <span class="typing-container">
+                            <span id="typing-text" class="typing-text"></span>
+                        </span>
+                    </p>
+                    <p class="text-lg mb-8 text-gray-400">Passionate about technology and cybersecurity with a vision to innovate and lead in the digital world. Securing the future, one line of code at a time.</p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="bg-primary text-gray-900 font-bold py-3 px-6 rounded-lg hover:bg-white transition shadow-[0_0_15px_rgba(74,222,128,0.5)]">Get In Touch</a>
+                        <a href="#achievements" class="border-2 border-primary text-primary font-semibold py-3 px-6 rounded-lg hover:bg-primary hover:text-gray-900 transition">View Achievements</a>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-primary blur-2xl opacity-20 rounded-full animate-pulse"></div>
+                        <div class="bg-surface/50 backdrop-blur-md border border-primary/30 rounded-full w-64 h-64 md:w-80 md:h-80 flex items-center justify-center shadow-[0_0_30px_rgba(74,222,128,0.2)] relative z-10">
+                            <i class="fas fa-user-shield text-8xl md:text-9xl text-primary drop-shadow-[0_0_10px_rgba(74,222,128,0.8)]"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-primary mb-4 font-mono">&lt;About Me /&gt;</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-transparent mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-lg mb-6 text-gray-300">My name is Vanshraj Tonder. I study in Class 8 and I am passionate about technology and cybersecurity. From an early age, I've been fascinated by how things work in the digital world, which led me to explore various aspects of computing and security.</p>
+                    <p class="text-lg mb-6 text-gray-300">I believe that technology has the power to solve real-world problems and improve lives. My goal is to leverage my technical skills to create innovative solutions while continuing to learn and grow in this ever-evolving field.</p>
+                    <p class="text-lg text-gray-300">As a young enthusiast, I'm constantly exploring new technologies, programming languages, and cybersecurity concepts to expand my knowledge and capabilities.</p>
+                </div>
+                <div class="bg-surface p-8 rounded-xl shadow-lg border border-gray-800 hover:border-primary/50 transition duration-300">
+                    <h3 class="text-2xl font-bold text-primary mb-6 border-b border-gray-700 pb-2">Skills & Interests</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-code text-primary mr-3 w-6 text-center"></i>
+                            <span>Web Development</span>
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-shield-alt text-primary mr-3 w-6 text-center"></i>
+                            <span>Cybersecurity Fundamentals</span>
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-database text-primary mr-3 w-6 text-center"></i>
+                            <span>Data Analysis</span>
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-bullhorn text-primary mr-3 w-6 text-center"></i>
+                            <span>Digital Marketing</span>
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-puzzle-piece text-primary mr-3 w-6 text-center"></i>
+                            <span>Problem Solving</span>
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-rocket text-primary mr-3 w-6 text-center"></i>
+                            <span>Entrepreneurship</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- School Section -->
+    <section id="school" class="py-20 bg-surface border-y border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-primary mb-4 font-mono">&lt;Education /&gt;</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-transparent mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="bg-light p-8 rounded-xl shadow-md border border-gray-700">
+                    <h3 class="text-2xl font-bold text-primary mb-4">PM Shri Jawahar Navodaya Vidyalaya</h3>
+                    <p class="text-lg mb-4 text-gray-300"><i class="fas fa-map-marker-alt text-primary mr-2"></i> Dabo, Mungeli, Chhattisgarh</p>
+                    <p class="text-lg mb-6 text-gray-300">Jawahar Navodaya Vidyalayas are residential schools for talented students predominantly from rural areas, aiming to provide quality education to meritorious students.</p>
+                    <div class="bg-gray-800/50 p-6 rounded-lg border-l-4 border-primary">
+                        <h4 class="font-bold text-primary mb-2">Why This School?</h4>
+                        <p class="text-gray-400">This prestigious institution provides an excellent academic environment that has allowed me to nurture my passion for technology while maintaining strong fundamentals in all subjects.</p>
+                    </div>
+                </div>
+                <div class="flex justify-center h-full">
+                    <div class="bg-light border-2 border-gray-700 rounded-xl w-full h-full min-h-[300px] flex items-center justify-center relative group hover:border-primary transition duration-500">
+                        <div class="absolute inset-0 bg-primary/5 blur-xl group-hover:bg-primary/10 transition duration-500"></div>
+                        <i class="fas fa-graduation-cap text-9xl text-primary opacity-80 group-hover:scale-110 transition duration-500 drop-shadow-[0_0_10px_rgba(74,222,128,0.5)]"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-primary mb-4 font-mono">&lt;Achievements /&gt;</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-transparent mx-auto"></div>
+            </div>
+            
+            <!-- Featured Achievement -->
+            <div class="mb-20">
+                <div class="bg-gradient-to-r from-secondary to-green-900 rounded-2xl shadow-[0_0_20px_rgba(22,163,74,0.3)] overflow-hidden border border-primary/20">
+                    <div class="p-8 md:p-12 text-white">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="md:w-2/3 mb-8 md:mb-0">
+                                <span class="bg-black/30 border border-primary text-primary text-sm font-bold px-4 py-1 rounded-full uppercase tracking-wider">Featured Achievement</span>
+                                <h3 class="text-2xl md:text-3xl font-bold mt-4 mb-4 font-mono">Chief Minister's Award for Cybersecurity Excellence</h3>
+                                <p class="text-lg mb-6 text-gray-200">Awarded by the Chief Minister of Chhattisgarh for exceptional work in cybersecurity and website development at such an early stage in school (Class 8).</p>
+                                <div class="flex items-center">
+                                    <i class="fas fa-trophy text-yellow-400 text-2xl mr-3 drop-shadow-[0_0_5px_rgba(250,204,21,0.5)]"></i>
+                                    <span class="font-semibold text-yellow-100">State Level Recognition</span>
+                                </div>
+                            </div>
+                            <div class="md:w-1/3 flex justify-center">
+                                <div class="bg-white bg-opacity-10 rounded-full w-40 h-40 flex items-center justify-center border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                                    <i class="fas fa-award text-5xl text-yellow-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Other Achievements -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="achievement-card bg-surface rounded-xl shadow-lg border border-gray-700 p-8 transition duration-300 group">
+                    <div class="text-primary text-4xl mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Ethical Hacking</h3>
+                    <p class="text-gray-400">Completed foundational courses in ethical hacking and cybersecurity principles, understanding how to protect digital systems from malicious attacks.</p>
+                </div>
+                
+                <div class="achievement-card bg-surface rounded-xl shadow-lg border border-gray-700 p-8 transition duration-300 group">
+                    <div class="text-primary text-4xl mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Data Analysis</h3>
+                    <p class="text-gray-400">Developed skills in analyzing data sets to extract meaningful insights, using various tools and techniques to interpret information effectively.</p>
+                </div>
+                
+                <div class="achievement-card bg-surface rounded-xl shadow-lg border border-gray-700 p-8 transition duration-300 group">
+                    <div class="text-primary text-4xl mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Web Development</h3>
+                    <p class="text-gray-400">Created multiple responsive websites demonstrating proficiency in HTML, CSS, JavaScript, and modern web development practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Section -->
+    <section id="business" class="py-20 bg-surface border-y border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-primary mb-4 font-mono">&lt;Business /&gt;</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-transparent mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-primary mb-6">Building the Future of Technology Solutions</h3>
+                    <p class="text-lg mb-6 text-gray-300">I am actively building my own business website to showcase my skills and grow in the field of technology. This venture represents my commitment to turning my passion into a professional career.</p>
+                    <p class="text-lg mb-6 text-gray-300">The business focuses on providing technology solutions tailored for educational institutions and small businesses, helping them establish a strong digital presence and secure their online assets.</p>
+                    <div class="flex items-center mb-4 text-gray-300">
+                        <i class="fas fa-laptop-code text-primary mr-3"></i>
+                        <span>Custom Website Development</span>
+                    </div>
+                    <div class="flex items-center mb-4 text-gray-300">
+                        <i class="fas fa-user-shield text-primary mr-3"></i>
+                        <span>Cybersecurity Consulting for Small Businesses</span>
+                    </div>
+                    <div class="flex items-center text-gray-300">
+                        <i class="fas fa-chart-line text-primary mr-3"></i>
+                        <span>Digital Marketing Solutions</span>
+                    </div>
+                </div>
+                <div class="bg-light p-8 rounded-xl shadow-lg border border-gray-700">
+                    <h4 class="text-xl font-bold text-primary mb-6">Business Goals</h4>
+                    <div class="space-y-6">
+                        <div class="border-l-2 border-gray-700 pl-4 hover:border-primary transition">
+                            <h5 class="font-bold text-lg mb-2 text-white">Short Term (2024-2025)</h5>
+                            <p class="text-gray-400">Establish a strong portfolio of client projects and gain recognition in the local business community.</p>
+                        </div>
+                        <div class="border-l-2 border-gray-700 pl-4 hover:border-primary transition">
+                            <h5 class="font-bold text-lg mb-2 text-white">Medium Term (2025-2027)</h5>
+                            <p class="text-gray-400">Expand services to include comprehensive IT consulting and develop proprietary software solutions.</p>
+                        </div>
+                        <div class="border-l-2 border-primary pl-4">
+                            <h5 class="font-bold text-lg mb-2 text-white">Long Term (2027+)</h5>
+                            <p class="text-gray-400">Build a team of young tech enthusiasts and establish the company as a leader in innovative technology solutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-primary mb-4 font-mono">&lt;Contact /&gt;</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-transparent mx-auto"></div>
+                <p class="mt-6 text-lg max-w-2xl mx-auto text-gray-300">Interested in collaborating or learning more about my work? Feel free to reach out!</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center group">
+                    <div class="bg-gray-800 border border-primary/30 text-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:text-black transition duration-300 shadow-[0_0_10px_rgba(74,222,128,0.2)]">
+                        <i class="fas fa-address-card text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Contact Info</h3>
+                    <div class="flex flex-col items-center space-y-2">
+                        <p class="text-gray-400 flex items-center hover:text-primary transition">
+                            <i class="fas fa-phone-alt text-primary mr-2"></i>
+                            <a href="tel:9993029854" class="hover:text-primary transition">9993029854</a>
+                        </p>
+                        <p class="text-gray-400 flex items-center">
+                            <i class="fas fa-envelope text-primary mr-2"></i>
+                            <span>vanshraj.tonder@example.com</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center group">
+                    <div class="bg-gray-800 border border-primary/30 text-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:text-black transition duration-300 shadow-[0_0_10px_rgba(74,222,128,0.2)]">
+                        <i class="fas fa-school text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">School</h3>
+                    <p class="text-gray-400">PM Shri Jawahar Navodaya Vidyalaya<br>Dabo, Mungeli, Chhattisgarh</p>
+                </div>
+                <div class="text-center group">
+                    <div class="bg-gray-800 border border-primary/30 text-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:text-black transition duration-300 shadow-[0_0_10px_rgba(74,222,128,0.2)]">
+                        <i class="fas fa-globe text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Connect With Me</h3>
+                    <div class="flex justify-center mt-4">
+                        <a href="https://instagram.com/hacker_by_vansh" target="_blank" class="text-primary hover:text-pink-500 transition flex flex-col items-center group">
+                            <i class="fab fa-instagram text-3xl mb-2 group-hover:scale-110 transition shadow-[0_0_10px_rgba(74,222,128,0.5)] rounded-lg"></i>
+                            <span class="font-medium text-gray-300 group-hover:text-white">@hacker_by_vansh</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-xl font-bold mb-4 text-primary font-mono">Vanshraj Tonder</p>
+                <p class="mb-6 text-gray-400">
+                    <span class="typing-container">
+                        <span id="footer-typing-text" class="typing-text"></span>
+                    </span>
+                </p>
+                <div class="w-20 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-6 opacity-50"></div>
+                <p class="text-gray-500 text-sm font-mono">© 2026 Vanshraj Tonder | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Typing Animation
+        class TypeWriter {
+            constructor(element, words, waitTime = 2000) {
+                this.element = element;
+                this.words = words;
+                this.waitTime = waitTime;
+                this.wordIndex = 0;
+                this.text = '';
+                this.isDeleting = false;
+                this.type();
+            }
+            
+            type() {
+                const currentIndex = this.wordIndex % this.words.length;
+                const fullText = this.words[currentIndex];
+                
+                if (this.isDeleting) {
+                    this.text = fullText.substring(0, this.text.length - 1);
+                } else {
+                    this.text = fullText.substring(0, this.text.length + 1);
+                }
+                
+                this.element.textContent = this.text;
+                
+                let typeSpeed = 100;
+                
+                if (this.isDeleting) {
+                    typeSpeed /= 2;
+                }
+                
+                if (!this.isDeleting && this.text === fullText) {
+                    typeSpeed = this.waitTime;
+                    this.isDeleting = true;
+                } else if (this.isDeleting && this.text === '') {
+                    this.isDeleting = false;
+                    this.wordIndex++;
+                    typeSpeed = 500;
+                }
+                
+                setTimeout(() => this.type(), typeSpeed);
+            }
+        }
+        
+        // Initialize typing animation when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const words = ['Student', 'Tech Enthusiast', 'Cyber Security Enthusiast'];
+            
+            const heroTypingElement = document.getElementById('typing-text');
+            const footerTypingElement = document.getElementById('footer-typing-text');
+            
+            if (heroTypingElement) {
+                new TypeWriter(heroTypingElement, words, 2000);
+            }
+            
+            if (footerTypingElement) {
+                // Slight delay for footer to create offset effect
+                setTimeout(() => {
+                    new TypeWriter(footerTypingElement, words, 2000);
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
